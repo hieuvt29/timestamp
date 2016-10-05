@@ -1,7 +1,7 @@
 var express = require('express');
 var moment = require('moment');
 var app = express();
-
+require('dotenv').load();
 app.use(express.static('public'));
 app.get('/:userdate',function(req,res){
         var date = req.params.userdate;
@@ -30,6 +30,6 @@ app.get('/:userdate',function(req,res){
         
     
 });
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port ', process.env.PORT);
 });
